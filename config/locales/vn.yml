@@ -1,2 +1,4 @@
 vn:
-  hello: "xin chào"
+  layouts:
+    header:
+      stories: "Truyen"

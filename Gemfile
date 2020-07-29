@@ -25,7 +25,11 @@ gem "sprockets-rails"
 gem "turbolinks", "~> 5"
 gem "webpacker", "~> 4.0"
 gem "rails-i18n"
+gem "bootstrap-sass", "3.4.1"
 gem "config"
+gem 'will_paginate', '~> 3.3'
+gem 'faker', '~> 2.13'
+gem 'bootstrap-will_paginate', '~> 1.0'
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
