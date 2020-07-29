@@ -5,3 +5,6 @@ client:
 NAME_MAXIMUM: 50
 EMAIL_MAXIMUM: 255
 PASSWORD_MINIMUM: 6
+
+theme: "twitter-bootstrap-3"
+

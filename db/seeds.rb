@@ -7,6 +7,7 @@ category.each do |i|
     Category.create(category_name: i)
 end
 
+
 User.create!(username: "Son kute",
              email: "sonkut3@railstutorial.org",
              password:"123123",
@@ -41,6 +42,7 @@ end
 
 20.times do |n|
   ui = r.rand(10..20)
+
   category_id = r.rand(1..category.count)
   views = r.rand(10000..90000)
   s = Story.new
@@ -49,31 +51,35 @@ end
   s.author = Faker::Name.name
   s.free = true
   s.price = 0
-  s.img = "/assets/ (#{n+1}).jpg"
+  s.img = "/assets/(#{n+1}).jpg"
   s.category_id = category_id
   s.views = views
+  s.introduction = Faker::TvShows::Buffy.episode
+
   s.save
 end
 
 30.times do |n|
-  ui = r.rand(1..20)
+  ui = r.rand(50..60)
   category_id = r.rand(1..category.count)
   views = r.rand(10000..90000)
-  store = Story.new
-  store.story_name = Faker::TvShows::Buffy.episode
-  store.user_id = ui
-  store.author = Faker::Name.name
-  store.free = false
-  store.price = 2000
-  store.img = "/assets/ (#{n+1}).jpg"
-  store.category_id = category_id
-  store.views = views
-  store.save
+  s = Story.new
+  s.story_name = Faker::TvShows::Buffy.episode
+  s.user_id = ui
+  s.author = Faker::Name.name
+  s.free = false
+  s.price = 2000
+  s.img = "/assets/(#{n+1}).jpg"
+  s.category_id = category_id
+  s.views = views
+  s.introduction = Faker::TvShows::Buffy.episode
+  s.save
 end
 
 Story.all.each do |i|
   num = 1
-  50.times do |n|
+
+  100.times do |n|
       c = Chapter.new
       content = ""
       30.times do |j|
