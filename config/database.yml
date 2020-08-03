@@ -48,7 +48,9 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   database: practice_dn_reading_stories_production
   username: practice_dn_reading_stories
   password: <%= ENV['PRACTICE_DN_READING_STORIES_DATABASE_PASSWORD'] %>
