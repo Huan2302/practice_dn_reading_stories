@@ -1,11 +1,12 @@
 class Story < ApplicationRecord
-  ORDERS = %i(story_name view).freeze
 
-  has_many :actions
-  has_many :payment_historys
-  has_many :chapters
-  belongs_to :category
+  ORDERS = %i(story_name view).freeze
+  has_many :actions, dependent: :delete_all
+  has_many :payment_histories, dependent: :delete_all
+  has_many :chapters, dependent: :delete_all
   belongs_to :user
+  belongs_to :category
+
 
   validates :story_name, presence: true, length: {maximum: Settings.story.name_maximum}
   validates :author, presence: true, length: {maximum: Settings.story.author_maximum}
@@ -16,4 +17,7 @@ class Story < ApplicationRecord
   def lastest_chapter
    chapters.lastest_chapter
   end
+
+
+
 end

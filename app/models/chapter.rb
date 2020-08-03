@@ -1,5 +1,6 @@
 class Chapter < ApplicationRecord
 
+
   belongs_to :story
 
   validates :story_name, presence: true
@@ -19,4 +20,5 @@ class Chapter < ApplicationRecord
   def previous_chapter
     story.chapters.find_by(chapter_number: self.chapter_number - 1)
   end
+
 end
